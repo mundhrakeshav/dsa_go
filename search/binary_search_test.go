@@ -38,7 +38,7 @@ func TestSearch(t *testing.T) {
 		arr = []int{1, 2, 9, 20, 31, 45, 63, 70, 100}
 		x = BinarySearchIterative(arr, 61)
 		if x != -1 {
-			t.Error("Incorrect")
+			t.Error("Incorrect Key")
 		}
 	})
 
