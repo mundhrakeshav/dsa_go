@@ -1,8 +1,8 @@
 package divisor
 
 import (
-	prime "dsa/prime"
 	"fmt"
+	prime "mundhrakeshav/dsa/prime"
 	"time"
 )
 
