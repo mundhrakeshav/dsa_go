@@ -26,27 +26,6 @@ func TwoSumNaive1(nums []int, target int) []int {
     return []int{};
 }
 
-type Record struct {
-    isThere bool;
-    index   int;
-}
-func TwoSum1(nums []int, target int) []int {
-    var record map[int]Record = make(map[int]Record);
-
-    for i := 0; i < len(nums); i++ {
-        diff := target - nums[i];
-        if record[diff].isThere {
-            return []int{record[diff].index, i}
-        }
-        record[nums[i]] = Record{
-            isThere: true,
-            index: i,
-        }
-    }
-
-    return []int{-1}
-}
-
 func TwoSum(nums []int, target int) []int {
     var record map[int]int = make(map[int]int);
 
