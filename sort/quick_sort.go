@@ -1,41 +1,29 @@
-// quicksort.go
-// description: Implementation of in-place quicksort algorithm
-// details:
-// A simple in-place quicksort algorithm implementation. [Wikipedia](https://en.wikipedia.org/wiki/Quicksort)
-// author(s) [Taj](https://github.com/tjgurwara99)
-// see sort_test.go for a test implementation, test function TestQuickSort.
-
 package sort
+func partition(_arr []int, _low, _high int) int {
+    _pivotElement := _arr[_high];
+    _pi := _low - 1;
 
+    for _pj := _low; _pj < _high; _pj++ {
+        if _arr[_pj] < _pivotElement {
+            _pi++;
+            _arr[_pi], _arr[_pj] = _arr[_pj], _arr[_pi]
+        }
+    }
 
-func Partition(arr []int, low, high int) int {
-	index := low - 1
-	pivotElement := arr[high]
-	for i := low; i < high; i++ {
-		if arr[i] <= pivotElement {
-			index += 1
-			arr[index], arr[i] = arr[i], arr[index]
-		}
-	}
-	arr[index+1], arr[high] = arr[high], arr[index+1]
-	return index + 1
+    _arr[_pi + 1], _arr[_high] = _arr[_high], _arr[_pi + 1]
+    return _pi + 1;
 }
 
-// QuicksortRange Sorts the specified range within the array
-func QuicksortRange(arr []int, low, high int) {
-	if len(arr) <= 1 {
-		return
-	}
-
-	if low < high {
-		pivot := Partition(arr, low, high)
-		QuicksortRange(arr, low, pivot-1)
-		QuicksortRange(arr, pivot+1, high)
-	}
+func QuickSortRange(_arr []int, _low, _high int)  {
+    if _low >= _high {
+        return
+    }
+    _pivot := partition(_arr, _low, _high);
+    QuickSortRange(_arr, _low, _pivot - 1)
+    QuickSortRange(_arr, _pivot + 1, _high)
 }
 
-// Quicksort Sorts the entire array
 func QuickSort(arr []int) []int {
-	QuicksortRange(arr, 0, len(arr)-1)
+	QuickSortRange(arr, 0, len(arr)-1)
 	return arr
 }
