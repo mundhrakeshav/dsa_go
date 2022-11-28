@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -12,10 +11,26 @@ func TestRemoveDuplicates(t *testing.T) {
 
 		arr := []int{0,0, 1, 1, 2, 3, 3, 3, 7, 7, 7, 7}
 		x := removeDuplicates(arr)
-		// if arr[0] != 0 && arr[1] != 1 {
-		// 	t.Error("Invalid Return")
-		// }
-		fmt.Println(x, arr)
+		if x != 5 {
+			t.Error("Invalid Return")
+		}
+		
+		if arr[0] != 0 {
+			t.Error("Invalid Return")
+		}
+		if arr[1] != 1 {
+			t.Error("Invalid Return")
+		}
+		if arr[2] != 2 {
+			t.Error("Invalid Return")
+		}
+		if arr[3] != 3 {
+			t.Error("Invalid Return")
+		}
+		if arr[4] != 7 {
+			t.Error("Invalid Return")
+		}
+		
 	})
 
 }
