@@ -2,7 +2,7 @@ package arraysgfg_test
 
 import (
 	"fmt"
-	arraysgfg "mundhrakeshav/dsa/arrays_gfg"
+	arraysgfg "mundhrakeshav/dsa/gfg/arrays_gfg"
 	"testing"
 )
 
