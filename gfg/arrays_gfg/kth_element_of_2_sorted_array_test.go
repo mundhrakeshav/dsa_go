@@ -8,7 +8,7 @@ import (
 
 func TestKthElementInSortedArray(t *testing.T) {
 
-	t.Run("TestReverseSubarray", func(t *testing.T) {
+	t.Run("TestKthElementInSortedArray", func(t *testing.T) {
 		a1 := []int{2,3,6,7,9}
 		a2 := []int{1,4,8,10}
 		x := arraysgfg.KthElementInSortedArray(a1, a2, 5)
