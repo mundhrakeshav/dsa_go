@@ -58,22 +58,45 @@ func TrappingRainWaterPreProcessing(arr []int, n int) int {
 
 }
 
-func StackApproach(arr []int, n int) int {
+func TrappingRainWaterStackApproach(arr []int, n int) int {
 	_stack := stack.CreateNew[int]()
-	res, _top := 0, 0;
+	res, _top := 0, 0
 	for i := 0; i < n; i++ {
-	//	if stack isn't empty	&& stack.top() > stack[current]
-		for !stack.StackEmpty(_stack) && arr[i] > arr[stack.StackPeek(_stack)]{
+		//	if stack isn't empty	&& stack.top() > stack[current]
+		for !stack.StackEmpty(_stack) && arr[i] > arr[stack.StackPeek(_stack)] {
 			_top, _stack = stack.StackPop(_stack)
 			if stack.StackEmpty(_stack) {
 				break
 			}
-			dist := i - stack.StackPeek(_stack) - 1;
+			dist := i - stack.StackPeek(_stack) - 1
 			height := int(math.Min(float64(arr[i]), float64(arr[stack.StackPeek(_stack)]))) - arr[_top]
 			res += (height * dist)
 		}
-		_stack = stack.StackPush(_stack, i);
+		_stack = stack.StackPush(_stack, i)
 	}
-	
+
+	return res
+}
+
+func TrappingRainWater2PointerApproach(arr []int, n int) int {
+	l, r, left_max, right_max, res := 0, n -1, 0, 0, 0
+
+	for l <= r {
+		if arr[l] <= arr[r] {
+			if arr[l] < left_max {
+				res += left_max - arr[l]
+			} else {
+				left_max = arr[l]
+			}
+			l++
+		} else {
+			if arr[r] < right_max {
+				res += right_max - arr[r]
+			} else {
+				right_max = arr[r]
+			}
+			r--
+		}
+	} 
 	return res;
 }
