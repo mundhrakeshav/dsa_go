@@ -7,7 +7,7 @@ import (
 
 func TestStockBuySell(t *testing.T) {
 
-	t.Run("TestSubarrayWithGivenSum", func(t *testing.T) {
+	t.Run("TestStockBuySell", func(t *testing.T) {
 		arr := []int{100, 180, 260, 310, 40, 535, 695}
 		res := arraysgfg.Stock_buy_sell(arr)
 		if res!= 865 {
