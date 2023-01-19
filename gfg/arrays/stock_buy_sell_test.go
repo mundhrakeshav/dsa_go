@@ -1,7 +1,7 @@
 package arraysgfg_test
 
 import (
-	arraysgfg "mundhrakeshav/dsa/gfg/arrays_gfg"
+	arraysgfg "mundhrakeshav/dsa/gfg/arrays"
 	"testing"
 )
 
