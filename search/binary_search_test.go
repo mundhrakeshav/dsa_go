@@ -1,6 +1,7 @@
 package search
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -40,6 +41,10 @@ func TestSearch(t *testing.T) {
 		if x != -1 {
 			t.Error("Incorrect Key")
 		}
+		
+		arr = []int{2, 8, 9, 11, 16, 32, 41, 45, 90}
+		x = BinarySearchIterative(arr, 8)
+		fmt.Println(x)
 	})
 
 }

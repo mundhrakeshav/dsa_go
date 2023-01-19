@@ -24,7 +24,7 @@ func BinarySearchIterative(arr []int, key int) int {
 	}
 	low := 0
 	high := len(arr) - 1
-	for high > low {
+	for high >= low {
 		mid := (low + high) / 2
 		if arr[mid] == key {
 			return mid
