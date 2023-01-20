@@ -8,10 +8,10 @@ func merge(left []int, right []int) []int {
 		if left[i] < right[j] {
 			arr[i+j] = left[i]
 			i++;
-			} else {
-				arr[i+j] = right[j]
-				j++
-			}
+		} else {
+			arr[i+j] = right[j]
+			j++
+		}
 	}
 
 	for i < len(left) {
