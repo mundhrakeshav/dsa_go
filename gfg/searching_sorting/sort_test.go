@@ -78,3 +78,7 @@ func TestQuickSort(t *testing.T) {
 	testFramework(t, searching_sorting.QuickSort)
 }
 
+func TestMergeSort(t *testing.T) {
+	testFramework(t, searching_sorting.MergeSort)
+}
+
