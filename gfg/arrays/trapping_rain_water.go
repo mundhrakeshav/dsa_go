@@ -2,7 +2,7 @@ package arraysgfg
 
 import (
 	"math"
-	stack "mundhrakeshav/dsa/stack"
+	stack "mundhrakeshav/dsa/ds/stack"
 )
 
 func TrappingRainWaterBruteForce(arr []int, n int) int {
