@@ -1,8 +1,8 @@
 package matrix_test
 
 import (
-	"fmt"
 	"mundhrakeshav/dsa/gfg/matrix"
+	"reflect"
 	"testing"
 )
 
@@ -13,9 +13,11 @@ func TestSpiralTraversal(t *testing.T) {
 			{5, 	6, 		7, 		8},
 			{9, 	10, 	11, 	12},
 			{13,	14,		15, 	16},
-			{17,	18,		19, 	20},
 		}
 		z := matrix.SpiralTraversal(a)
-		fmt.Println(z)
+		expected := []int{1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10};
+		if !reflect.DeepEqual(z, expected) {
+			t.Error("Invalid")
+		}
 	})
 }
