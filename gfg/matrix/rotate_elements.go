@@ -46,7 +46,7 @@ func RotateMatrix(matrix [][]int, m, n int) [][]int {
 
 		// Shift last column
 		if col < n {
-			for i := m - 1; i >= col; i-- {
+			for i := m - 1; i >= row; i-- {
 				curr = matrix[i][col]
 				matrix[i][col] = prev
 				prev = curr
