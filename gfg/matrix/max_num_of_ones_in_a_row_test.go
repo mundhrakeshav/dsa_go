@@ -39,7 +39,7 @@ func TestMaxNumOfOnes(t *testing.T) {
 			{0, 0, 0, 0},
 		}
 
-		if matrix.Max_num_of_ones(a) != -1 {
+		if matrix.Max_num_of_ones(a) != 0 {
 			t.Error()
 		}
 	})
