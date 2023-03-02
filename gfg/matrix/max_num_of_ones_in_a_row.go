@@ -31,3 +31,20 @@ func Max_num_of_ones(arr [][]int) int {
 	}
 	return maxRow
 }
+
+// // Can be optimized further if it was a sq matrix
+// func Max_num_of_ones_sq(arr [][]int) int {
+// 	maxRow, maxRowFirstOneIndex:= 0, len(arr[0]);
+
+// 	for i, v := range arr {
+// 		if v[maxRowFirstOneIndex] == 1 {
+// 			x := firstOneSearch(v, maxRowFirstOneIndex)
+		
+// 			if x >= 0 && len(v) - x > len(arr[maxRow]) - maxRowFirstOneIndex {
+// 				maxRow = i;
+// 				maxRowFirstOneIndex = x
+// 			}
+// 		}
+// 	}
+// 	return maxRow
+// }
