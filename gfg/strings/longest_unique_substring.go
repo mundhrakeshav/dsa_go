@@ -1,7 +1,5 @@
 package strings
 
-import "fmt"
-
 func Longest_Unique_Substring(str string) int {
 	i := 0
 	max := 0
@@ -17,6 +15,5 @@ func Longest_Unique_Substring(str string) int {
 			j++
 		}
 	}
-	fmt.Println(hm)
 	return max
 }
