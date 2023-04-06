@@ -13,7 +13,7 @@ func RemoveAdjacentDuplicates(inputString string) string {
 		}
 	}
 
-	rem_str := RemoveAdjacentDuplicates(inputString[1:])
+	// rem_str := RemoveAdjacentDuplicates(inputString[1:])
 
 	return inputString
 }

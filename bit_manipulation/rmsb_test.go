@@ -6,7 +6,7 @@ import (
 )
 
 // Incomplete
-func TestSmallestPrimeFactors(t *testing.T) {
+func TestRMSB(t *testing.T) {
 	t.Run("RMSB", func(t *testing.T) {
 		s := bit_manipulation.GetRightMostSetBit(19)
 		if s != 1 {
