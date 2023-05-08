@@ -2,7 +2,8 @@ package recursionbacktracking
 
 // Incomplete
 func RemoveAdjacentDuplicates(inputString string) string {
-	if len(inputString) <= 1 {
+	len_input := len(inputString);
+	if len_input <= 1 {
 		return inputString
 	}
 	
@@ -12,9 +13,6 @@ func RemoveAdjacentDuplicates(inputString string) string {
 			return RemoveAdjacentDuplicates(inputString[1:])
 		}
 	}
-
-	// rem_str := RemoveAdjacentDuplicates(inputString[1:])
-
 	return inputString
 }
 
