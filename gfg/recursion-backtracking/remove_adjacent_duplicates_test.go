@@ -2,7 +2,7 @@ package recursionbacktracking_test
 
 import (
 	"fmt"
-	recursion_backtracking "mundhrakeshav/dsa/recursion-backtracking"
+	recursion_backtracking "mundhrakeshav/dsa/gfg/recursion-backtracking"
 	"testing"
 )
 

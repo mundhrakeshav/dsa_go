@@ -1,7 +1,7 @@
 package bitmanipulation_test
 
 import (
-	bit_manipulation "mundhrakeshav/dsa/bit_manipulation"
+	bit_manipulation "mundhrakeshav/dsa/gfg/bit_manipulation"
 	"testing"
 )
 
