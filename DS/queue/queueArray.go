@@ -1,14 +1,16 @@
 package queue
 
+type Queue[T any] []T
 
-func createNew[T any](_initialData ...T) []T {
-	return []T(_initialData)
+
+func CreateNew[T any](_initialData ...T) Queue[T] {
+	return Queue[T](_initialData)
 }
 
-func enqueue[T any](_queue []T, _data T) []T {
+func (_queue Queue[T]) Enqueue( _data T) []T {
 	return append(_queue, _data)
 }
 
-func dequeue[T any](_queue []T) []T  {
+func (_queue Queue[T]) Dequeue() []T {
 	return _queue[1:]
 }

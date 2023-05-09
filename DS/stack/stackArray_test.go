@@ -134,7 +134,11 @@ func TestStackArray(t *testing.T) {
 	})
 	t.Run("Pop", func(t *testing.T) {
 		stk := stack.CreateNew(1, 2, 3, 4, 5)
-		stk = stk.Pop()
+		pop, stk := stk.Pop();
+		
+		if pop != 1 {
+			t.Errorf("Expected pop to be 1, but got %d", pop)
+		}
 		if len(stk) != 4 {
 			t.Errorf("Expected stack length to be 4, but got %d", len(stk))
 		}
@@ -144,7 +148,7 @@ func TestStackArray(t *testing.T) {
 		/*------------------------------------------------------------------------------------*/
 
 		// Pop another element off the stack
-		stk = stk.Pop()
+		_, stk = stk.Pop()
 
 		// Check that the top element was removed
 		if len(stk) != 3 {
@@ -153,7 +157,9 @@ func TestStackArray(t *testing.T) {
 		if stk[0] != 3 {
 			t.Errorf("Expected top element to be 3, but got %d", stk[0])
 		}
-		stk = stk.Pop().Pop().Pop()
+		_, stk = stk.Pop()
+		_, stk = stk.Pop()
+		_, stk = stk.Pop()
 
 		// Check that the stack is now empty
 		if len(stk) != 0 {
@@ -161,11 +167,59 @@ func TestStackArray(t *testing.T) {
 		}
 
 		// Should not throw if no elements are present
-		stk.Pop().Pop().Pop()
-		
+		_, stk = stk.Pop()
+		_, stk = stk.Pop()
+		_, stk = stk.Pop()		
 		// Check that the stack is now empty
 		if len(stk) != 0 {
 			t.Errorf("Expected stack length to be 0, but got %d", len(stk))
 		}
 	})
+}
+
+
+func TestStackLength(t *testing.T) {
+    stk := stack.Stack[int]{1, 2, 3, 4, 5}
+    expected := 5
+    actual := stk.StackLength()
+    if actual != expected {
+        t.Errorf("Expected stack length to be %d but got %d", expected, actual)
+    }
+}
+
+func TestStackPeek(t *testing.T) {
+    stk := stack.Stack[string]{"hello", "world"}
+    expected := "hello"
+    actual := stk.StackPeek()
+    if actual != expected {
+        t.Errorf("Expected stack peek to be %s but got %s", expected, actual)
+    }
+}
+
+func TestIsEmpty(t *testing.T) {
+    stk := stack.Stack[float64]{}
+    expected := true
+    actual := stk.IsEmpty()
+    if actual != expected {
+        t.Errorf("Expected stack to be empty but it is not")
+    }
+}
+
+
+func TestStackLengthEmpty(t *testing.T) {
+    stk := stack.Stack[int]{}
+    expected := 0
+    actual := stk.StackLength()
+    if actual != expected {
+        t.Errorf("Expected stack length to be %d but got %d", expected, actual)
+    }
+}
+
+func TestIsEmptyNonEmpty(t *testing.T) {
+    stk := stack.Stack[float64]{1.0, 2.0, 3.0}
+    expected := false
+    actual := stk.IsEmpty()
+    if actual != expected {
+        t.Errorf("Expected stack to be non-empty but it is empty")
+    }
 }

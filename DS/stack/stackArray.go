@@ -11,19 +11,24 @@ func (stk Stack[T]) Push(data T) Stack[T] {
 	return append([]T{data}, stk...);
 }
 
-func (stk Stack[T]) Pop() Stack[T] {
+func (stk Stack[T]) Pop() (T, Stack[T]) {
+	var pop T;
 	if (len(stk) == 0) {
-		return stk
+		return pop,stk
 	}
-	return stk[1:];
+	pop = stk[0]
+	return pop, stk[1:];
 }
 
-
-func StackLength[T any](stack []T) int {
-	return len(stack)
+func (stk Stack[T]) StackLength() int {
+	return len(stk)
 }
 
-func  StackPeek[T any](stack []T) T {
-	return stack[0]
+func (stk Stack[T]) StackPeek() T {
+
+	return stk[0]
 }
 
+func (stk Stack[T]) IsEmpty() bool {
+	return len(stk) == 0
+}
