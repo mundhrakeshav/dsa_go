@@ -1,56 +1,53 @@
 package stack
 
-import "fmt"
-
 type Node[T any] struct {
-	val T;
-	next *Node[T];
+	Val T;
+	Next *Node[T];
 }
 
 type LinkedListStack[T any] struct {
-	head *Node[T];
-	length int;
+	Head *Node[T];
+	Length int;
 }
 
-func createNewLinkedList[T any](val T) *LinkedListStack[T] {
+func CreateNewLinkedList[T any](val T) *LinkedListStack[T] {
 	head := Node[T]{
-		val: val,
+		Val: val,
 	};
 
 	return &LinkedListStack[T]{
-		head: &head,
-		length: 1,
+		Head: &head,
+		Length: 1,
 	}
 }
 
-func pushToLinkedListStack[T any](ll *LinkedListStack[T], val T)  {
+func (ll *LinkedListStack[T]) Push(Val T)  {
 	newHead := &Node[T]{
-		val: val,
-		next: ll.head,
+		Val: Val,
+		Next: ll.Head,
 	}
 
-	ll.head = newHead;
-	ll.length++;
+	ll.Head = newHead;
+	ll.Length++;
 }
 
-func printLinkedListStack[T any](ll *LinkedListStack[T])  {
-	node := ll.head;
-	for i := 0; i < ll.length; i++ {
-		fmt.Println(node.val)
-		node = node.next;
+func (ll *LinkedListStack[T]) Print()  {
+	node := ll.Head;
+	for i := 0; i < ll.Length; i++ {
+		node = node.Next;
 	}
 
 }
 
-func popLinkedListStack[T any](ll *LinkedListStack[T])  {
-	if ll.head == nil{
+func (ll *LinkedListStack[T]) Pop()  {
+	if ll.Head == nil{
 		return;
 	}
 	
-	if ll.head.next == nil {
-		ll.head = nil;
+	if ll.Head.Next == nil {
+		ll.Head = nil;
 	} else {
-		ll.head = ll.head.next;
+		ll.Head = ll.Head.Next;
 	}
-	ll.length--;
+	ll.Length--;
 }
