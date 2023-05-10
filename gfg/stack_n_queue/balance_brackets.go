@@ -1,7 +1,6 @@
 package stacknqueue
 
 import (
-	_ "fmt"
 	stack "mundhrakeshav/dsa/DS/stack"
 )
 
