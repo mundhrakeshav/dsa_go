@@ -24,9 +24,3 @@ func TestStockSpan(t *testing.T) {
 	}
 
 }
-
-// func TestStockSpan(t *testing.T) {
-// 	spans := stack_n_queue.StockSpan([]uint{100, 80, 60, 70, 60, 75, 85})
-// 	fmt.Println(spans)
-
-// }
