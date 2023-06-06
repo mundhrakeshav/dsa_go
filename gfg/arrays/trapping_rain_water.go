@@ -63,16 +63,16 @@ func TrappingRainWaterStackApproach(arr []int, n int) int {
 	res, _top := 0, 0
 	for i := 0; i < n; i++ {
 		//	if stack isn't empty	&& stack.top() > stack[current]
-		for !stack.StackEmpty(_stack) && arr[i] > arr[stack.StackPeek(_stack)] {
-			_top, _stack = stack.StackPop(_stack)
-			if stack.StackEmpty(_stack) {
+		for !_stack.IsEmpty() && arr[i] > arr[_stack.StackPeek()] {
+			_top, _stack = _stack.Pop()
+			if _stack.IsEmpty() {
 				break
 			}
-			dist := i - stack.StackPeek(_stack) - 1
-			height := int(math.Min(float64(arr[i]), float64(arr[stack.StackPeek(_stack)]))) - arr[_top]
+			dist := i - _stack.StackPeek() - 1
+			height := int(math.Min(float64(arr[i]), float64(arr[_stack.StackPeek()]))) - arr[_top]
 			res += (height * dist)
 		}
-		_stack = stack.StackPush(_stack, i)
+		_stack = _stack.Push(i)
 	}
 
 	return res
